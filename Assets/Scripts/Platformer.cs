@@ -31,7 +31,18 @@ public class Platformer : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
 
         }
-        
+        if (Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftShift) && _PolygonCollider2D.IsTouchingLayers(ground))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 2);
+        }
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.velocity = new Vector2(-speed * 2, rb.velocity.y);
+        }   
+        if (Input.GetKey(KeyCode.D)&& Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.velocity = new Vector2(speed * 2, rb.velocity.y);
+        }
 
     }
 }
